@@ -16,5 +16,5 @@ elif [[ "$2" == "-h" ]]; then
     -h: show this help message
     "
 else
-    echo "Please use the -m flag for mac or the -l flag for linux"
-fi  
+   echo "Uso: $0 <project_name> <project_size '-s: small | -m: medium | -l: large'>"
+fi
