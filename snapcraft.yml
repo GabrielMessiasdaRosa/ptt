@@ -1,0 +1,44 @@
+name: ptt
+version: '1.0'
+summary: Um utilitário para projetos em Terraform
+
+description: |
+  O utilitário "ptt" é usado para criar arquivos e preparar um ambiente para começar
+  projetos em Terraform. Ele oferece suporte a três tamanhos de projeto: pequeno, médio
+  e grande, e depende dos scripts "small-project.sh", "medium-project.sh" e "large-project.sh".
+
+grade: stable
+confinement: strict
+
+apps:
+  ptt:
+    command: ptt
+    plugs:
+      - home
+      - network
+      - network-bind
+
+parts:
+  ptt-script:
+    source: .
+    plugin: dump
+    organize:
+      ptt: bin/
+
+  small-project:
+    source: path/to/small-project.sh
+    plugin: dump
+    organize:
+      small-project.sh: bin/
+
+  medium-project:
+    source: path/to/medium-project.sh
+    plugin: dump
+    organize:
+      medium-project.sh: bin/
+
+  large-project:
+    source: path/to/large-project.sh
+    plugin: dump
+    organize:
+      large-project.sh: bin/

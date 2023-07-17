@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Verifica se o usuário forneceu todos os argumentos necessários
+if [ $# -ne 2 ]; then
+    echo "Uso: $0 <project_name> <project_size '-s: small | -m: medium | -l: large'>"
+    exit 1
+fi
+if [[ "$2" == "-s" ]]; then
+    source small-project.sh
+elif [[ "$2" == "-m" ]]; then
+    source medium-project.sh
+    elif [[ "$2" == "-l" ]]; then
+    source large-project.sh
+elif [[ "$2" == "-h" ]]; then
+    echo "
+    Usage: $0 <project_name> <project_size '-s: small | -m: medium | -l: large'>
+    -h: show this help message
+    "
+else
+    echo "Please use the -m flag for mac or the -l flag for linux"
+fi  
